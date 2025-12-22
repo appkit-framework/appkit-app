@@ -1,0 +1,23 @@
+{
+    "name": "appkit/app",
+    "type": "library",
+    "description": "Application base class for the AppKit framework",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "require": {
+        "appkit/async": "^1.0",
+        "appkit/log": "^1.0",
+        "appkit/start-stop": "^1.0",
+        "react/async": "^4.3",
+        "react/event-loop": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "AppKit\\App\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
