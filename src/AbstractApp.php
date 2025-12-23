@@ -57,8 +57,7 @@ abstract class AbstractApp {
                 'Starting app '.
                 static::VENDOR.
                 '/'.
-                static::DOMAIN.
-                '.'.
+                (static::DOMAIN ? static::DOMAIN.'.' : '').
                 static::NAME.
                 '...'
             );
