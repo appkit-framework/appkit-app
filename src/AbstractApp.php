@@ -6,7 +6,7 @@ use AppKit\Log\Logger;
 use AppKit\Log\Handler\StdoutHandler;
 use AppKit\StartStop\StartStopSequence;
 use AppKit\Async\Task;
-use AppKit\Async\Exception\CanceledException;
+use AppKit\Async\CanceledException;
 
 use Throwable;
 use React\EventLoop\Loop;
