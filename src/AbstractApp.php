@@ -19,6 +19,7 @@ abstract class AbstractApp {
     protected const DOMAIN = null;
     protected const NAME = null;
 
+    protected $appId;
     protected $log;
     protected $s3;
 
@@ -28,6 +29,8 @@ abstract class AbstractApp {
     abstract protected function init($config);
     
     function __construct($config) {
+        $this -> appId = (static::DOMAIN ? static::DOMAIN.'.' : '') . static::NAME;
+
         $this -> log = new Logger($this);
         if(isset($config['log']['local']['level'])) {
             $this -> log -> addHandler(
@@ -53,14 +56,7 @@ abstract class AbstractApp {
                 return $this -> stopRoutine();
             });
 
-            $this -> log -> info(
-                'Starting app '.
-                static::VENDOR.
-                '/'.
-                (static::DOMAIN ? static::DOMAIN.'.' : '').
-                static::NAME.
-                '...'
-            );
+            $this -> log -> info('Starting app ' . static::VENDOR . '/' . $this -> appId . '...');
 
             try {
                 $this -> startTask -> run() -> await();
