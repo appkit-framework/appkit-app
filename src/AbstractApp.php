@@ -7,12 +7,12 @@ use AppKit\Log\Handler\StdoutHandler;
 use AppKit\StartStop\StartStopSequence;
 use AppKit\Async\Task;
 use AppKit\Async\CanceledException;
+use function AppKit\Async\async;
+use function AppKit\Async\await;
 
 use Throwable;
 use React\EventLoop\Loop;
 use React\EventLoop\ExtUvLoop;
-use function React\Async\async;
-use function React\Async\await;
 
 abstract class AbstractApp {
     protected const VENDOR = null;
