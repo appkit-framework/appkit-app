@@ -31,7 +31,7 @@ abstract class AbstractApp {
     function __construct($config) {
         $this -> appId = (static::DOMAIN ? static::DOMAIN.'.' : '') . static::NAME;
 
-        $this -> log = new Logger($this);
+        $this -> log = new Logger(static::class);
         if(isset($config['log']['local']['level'])) {
             $this -> log -> addHandler(
                 new StdoutHandler($config['log']['local']['printStackTraces'] ?? false),
