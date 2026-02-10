@@ -57,7 +57,7 @@ abstract class AbstractApp {
             });
 
             $this -> log -> info(
-                'Starting app...',
+                'Starting app',
                 [
                     'vendor' => static::VENDOR,
                     'appId' => $this -> appId
@@ -100,16 +100,16 @@ abstract class AbstractApp {
         $stopStatus = $this -> stopTask -> getStatus();
 
         if($stopStatus != Task::PENDING || $startStatus == Task::CANCELING) {
-            $this -> log -> warning('Forcing app stop...');
+            $this -> log -> warning('Forcing app stop');
             Loop::stop();
             return;
         }
 
         if($startStatus == Task::PENDING || $startStatus == Task::RUNNING) {
-            $this -> log -> debug('Canceling app start...');
+            $this -> log -> debug('Canceling app start');
             $this -> startTask -> cancel();
         } else {
-            $this -> log -> debug('Stopping app...');
+            $this -> log -> debug('Stopping app');
             $this -> stopTask -> run();
         }
     }
