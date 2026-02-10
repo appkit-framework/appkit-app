@@ -56,7 +56,13 @@ abstract class AbstractApp {
                 return $this -> stopRoutine();
             });
 
-            $this -> log -> info('Starting app ' . static::VENDOR . '/' . $this -> appId . '...');
+            $this -> log -> info(
+                'Starting app...',
+                [
+                    'vendor' => static::VENDOR,
+                    'appId' => $this -> appId
+                ]
+            );
 
             try {
                 $this -> startTask -> run() -> await();
@@ -81,7 +87,10 @@ abstract class AbstractApp {
 
     public function signal($signal) {
         Loop::futureTick(function() use($signal) {
-            $this -> log -> warning("Received signal $signal");
+            $this -> log -> warning(
+                'Received signal',
+                [ 'signal' => $signal ]
+            );
             $this -> stop();
         });
     }
