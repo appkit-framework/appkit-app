@@ -3,7 +3,7 @@
 namespace AppKit\App;
 
 use AppKit\Log\Logger;
-use AppKit\Log\Handler\StdoutHandler;
+use AppKit\Log\Handler\Stream\StdoutHandler;
 use AppKit\StartStop\StartStopSequence;
 use AppKit\Async\Task;
 use AppKit\Async\CanceledException;

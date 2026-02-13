@@ -6,6 +6,7 @@
     "require": {
         "appkit/async": "^1.0",
         "appkit/log": "^1.0",
+        "appkit/log-handler-stream": "^1.0",
         "appkit/start-stop": "^1.0",
         "react/async": "^4.3",
         "react/event-loop": "^1.6"
