@@ -57,7 +57,7 @@ abstract class AbstractApp {
             });
 
             $this -> log -> info(
-                'Starting app',
+                'Starting app {vendor}/{appId}',
                 [
                     'vendor' => static::VENDOR,
                     'appId' => $this -> appId
@@ -88,7 +88,7 @@ abstract class AbstractApp {
     public function signal($signal) {
         Loop::futureTick(function() use($signal) {
             $this -> log -> warning(
-                'Received signal',
+                'Received signal {signal}',
                 [ 'signal' => $signal ]
             );
             $this -> stop();
